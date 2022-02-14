@@ -1,6 +1,7 @@
 class Tictactoe
 
     def do_test(input)
-        "21"
+    input = "17"
+    
     end
 end
