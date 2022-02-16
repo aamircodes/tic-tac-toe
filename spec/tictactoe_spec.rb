@@ -39,11 +39,29 @@ describe Tictactoe do
 
         # Act
         tictactoe = described_class.new
-        
+
         position = [[" ", "X", " "], [" ", " ", " "], [" ", " ", " "]]
         expected_board = [" #{position[0]} | #{position[1]} | #{position[2]} ",  "-----------",  " #{position[3]} | #{position[4]} | #{position[5]} ",  "-----------", " #{position[6]} | #{position[7]} | #{position[8]} "]
         
         tictactoe.update_board(0,1,'X')
+        result = tictactoe.display_board()
+
+        # Assert
+        expect(result).to eq(expected_board)
+    
+    end
+
+    it "outputs board with an 'X' and 'O' in separate positions" do
+
+        # Act
+        tictactoe = described_class.new
+        
+        position = [[" ", "X", " "], [" ", "O", " "], [" ", " ", " "]]
+        expected_board = [" #{position[0]} | #{position[1]} | #{position[2]} ",  "-----------",  " #{position[3]} | #{position[4]} | #{position[5]} ",  "-----------", " #{position[6]} | #{position[7]} | #{position[8]} "]
+        
+        tictactoe.update_board(0,1,'X')
+        tictactoe.update_board(1,1,'O')
+
         result = tictactoe.display_board()
 
         # Assert
