@@ -96,4 +96,19 @@ describe Tictactoe do
         expect(result).to eq(false)
     
     end
+
+    it "user is prompted to 'try again' when position is full" do
+
+        # Act
+        tictactoe = described_class.new
+        
+        tictactoe.update_board(0,0,'X')
+
+
+        result = tictactoe.update_board(0,0,'O')
+
+        # Assert
+        expect(result).to eq('Position is occupied. Try again!')
+    
+    end
 end

@@ -14,7 +14,7 @@ class Tictactoe
             @position[row][column] = symbol 
             return @position
         else 
-            puts "Position is occupied. Try again!"
+            return "Position is occupied. Try again!"
         end
     end 
 
