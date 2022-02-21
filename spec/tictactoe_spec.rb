@@ -9,7 +9,7 @@ describe Tictactoe do
         tictactoe = described_class.new
 
         position = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
-        expected_board = [" #{position[0]} | #{position[1]} | #{position[2]} ",  "-----------",  " #{position[3]} | #{position[4]} | #{position[5]} ",  "-----------", " #{position[6]} | #{position[7]} | #{position[8]} "]
+        expected_board = [" #{position[0][0]} | #{position[0][1]} | #{position[0][2]} ",  "-----------",  " #{position[1][0]} | #{position[1][1]} | #{position[1][2]} ",  "-----------", " #{position[2][0]} | #{position[2][1]} | #{position[2][2]} "]
         result = tictactoe.display_board()
 
         # Assert
@@ -23,7 +23,7 @@ describe Tictactoe do
         tictactoe = described_class.new
 
         position = [["X", " ", " "], [" ", " ", " "], [" ", " ", " "]]
-        expected_board = [" #{position[0]} | #{position[1]} | #{position[2]} ",  "-----------",  " #{position[3]} | #{position[4]} | #{position[5]} ",  "-----------", " #{position[6]} | #{position[7]} | #{position[8]} "]
+        expected_board = [" #{position[0][0]} | #{position[0][1]} | #{position[0][2]} ",  "-----------",  " #{position[1][0]} | #{position[1][1]} | #{position[1][2]} ",  "-----------", " #{position[2][0]} | #{position[2][1]} | #{position[2][2]} "]
         
         tictactoe.update_board(0,0,'X')
         result = tictactoe.display_board()
@@ -39,7 +39,7 @@ describe Tictactoe do
         tictactoe = described_class.new
 
         position = [[" ", "X", " "], [" ", " ", " "], [" ", " ", " "]]
-        expected_board = [" #{position[0]} | #{position[1]} | #{position[2]} ",  "-----------",  " #{position[3]} | #{position[4]} | #{position[5]} ",  "-----------", " #{position[6]} | #{position[7]} | #{position[8]} "]
+        expected_board = [" #{position[0][0]} | #{position[0][1]} | #{position[0][2]} ",  "-----------",  " #{position[1][0]} | #{position[1][1]} | #{position[1][2]} ",  "-----------", " #{position[2][0]} | #{position[2][1]} | #{position[2][2]} "]
         
         tictactoe.update_board(0,1,'X')
         result = tictactoe.display_board()
@@ -55,7 +55,7 @@ describe Tictactoe do
         tictactoe = described_class.new
         
         position = [[" ", "X", " "], [" ", "O", " "], [" ", " ", " "]]
-        expected_board = [" #{position[0]} | #{position[1]} | #{position[2]} ",  "-----------",  " #{position[3]} | #{position[4]} | #{position[5]} ",  "-----------", " #{position[6]} | #{position[7]} | #{position[8]} "]
+        expected_board = [" #{position[0][0]} | #{position[0][1]} | #{position[0][2]} ",  "-----------",  " #{position[1][0]} | #{position[1][1]} | #{position[1][2]} ",  "-----------", " #{position[2][0]} | #{position[2][1]} | #{position[2][2]} "]
         
         tictactoe.update_board(0,1,'X')
         tictactoe.update_board(1,1,'O')
@@ -74,7 +74,7 @@ describe Tictactoe do
         tictactoe = described_class.new
         
         position = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
-        expected_board = [" #{position[0]} | #{position[1]} | #{position[2]} ",  "-----------",  " #{position[3]} | #{position[4]} | #{position[5]} ",  "-----------", " #{position[6]} | #{position[7]} | #{position[8]} "]
+        expected_board = [" #{position[0][0]} | #{position[0][1]} | #{position[0][2]} ",  "-----------",  " #{position[1][0]} | #{position[1][1]} | #{position[1][2]} ",  "-----------", " #{position[2][0]} | #{position[2][1]} | #{position[2][2]} "]
 
         result = tictactoe.is_empty?(1,1)
 
