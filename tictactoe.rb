@@ -1,8 +1,10 @@
 class Tictactoe
     attr_accessor :position
+    attr_accessor :turn_count
 
     def initialize()
         @position = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
+        @turn_count = 0
     end    
 
     def update_board(row, column, symbol)
@@ -15,22 +17,25 @@ class Tictactoe
     end
 
     def turn()
-        
-        k = 0
-        while k == 0 
-            print "Please enter your symbol: "
-            symbol = gets.chomp
-            print "Please enter your row coordinates: "
-            row = gets.chomp.to_i 
-            print "And now, please enter your column coordinates: "
-            column = gets.chomp.to_i
+        @turn_count = 0
+        while @turn_count < 9
+            k = 0
+            while k == 0 
+                print "Please enter your symbol: "
+                symbol = gets.chomp
+                print "Please enter your row coordinates: "
+                row = gets.chomp.to_i 
+                print "And now, please enter your column coordinates: "
+                column = gets.chomp.to_i
 
-            if is_empty?(row,column)
-                update_board(row, column, symbol)
-                k += 1
-            else     
-                print "This slot is already taken, try again! "
-            end     
+                if is_empty?(row,column)
+                    update_board(row, column, symbol)
+                    k += 1
+                    @turn_count += 1
+                else     
+                    print "This slot is already taken, try again! "
+                end     
+            end
         end
     end
 

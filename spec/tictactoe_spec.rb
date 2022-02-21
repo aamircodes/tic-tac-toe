@@ -108,27 +108,7 @@ describe Tictactoe do
 
         result = tictactoe.position
 
-        position = [["X", " ", " "], [" ", " ", " "], [" ", " ", " "]]
-
-        # Assert
-        expect(result).to eq(position)
-    
-    end 
-
-    it "checks turn function works for an occupied position" do
-
-        # Act
-        tictactoe = described_class.new
-
-        puts "test2.1"
-        tictactoe.turn()
-        puts "test2.2"
-        tictactoe.turn()
-
-        result = tictactoe.position
-
-        position = [["X", "O", " "], [" ", " ", " "], [" ", " ", " "]]
-
+        position = [["X", "O", "X"], ["O", "X", "O"], ["X", "O", "X"]]
 
         # Assert
         expect(result).to eq(position)
