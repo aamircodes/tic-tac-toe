@@ -18,7 +18,8 @@ class Tictactoe
         
         k = 0
         while k == 0 
-            symbol = 'X'
+            print "Please enter your symbol: "
+            symbol = gets.chomp
             print "Please enter your row coordinates: "
             row = gets.chomp.to_i 
             print "And now, please enter your column coordinates: "

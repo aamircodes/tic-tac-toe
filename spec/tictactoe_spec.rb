@@ -127,7 +127,7 @@ describe Tictactoe do
 
         result = tictactoe.position
 
-        position = [["X", "X", " "], [" ", " ", " "], [" ", " ", " "]]
+        position = [["X", "O", " "], [" ", " ", " "], [" ", " ", " "]]
 
 
         # Assert
