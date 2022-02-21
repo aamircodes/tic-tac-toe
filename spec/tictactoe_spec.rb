@@ -97,18 +97,19 @@ describe Tictactoe do
     
     end
 
-    it "user is prompted to 'try again' when position is full" do
+
+    it "checks turn function works for updating the board" do
 
         # Act
         tictactoe = described_class.new
-        
-        tictactoe.update_board(0,0,'X')
 
+        result = tictactoe.turn()
 
-        result = tictactoe.update_board(0,0,'O')
+        position = [["X", " ", " "], [" ", " ", " "], [" ", " ", " "]]
 
         # Assert
-        expect(result).to eq('Position is occupied. Try again!')
+        expect(result).to eq(position)
     
-    end
+    end 
+
 end
