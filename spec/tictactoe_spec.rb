@@ -128,19 +128,38 @@ describe Tictactoe do
     
     # end 
 
+    # it "checks game function" do
+
+    #     # Act
+    #     tictactoe = described_class.new
+
+    #     puts "Game func. test"
+    #     tictactoe.game
+
+    #     result = tictactoe.position
+    #     expected_position = [["X", "O", "X"], ["O", "X", "O"], ["X", "O", "X"]]
+
+    #     # Assert
+    #     expect(result).to eq(expected_position)
+    
+    # end 
+
     it "checks game function" do
 
         # Act
         tictactoe = described_class.new
 
-        puts "Game func. test"
-        tictactoe.game
+        tictactoe.update_board(0,0,"X")
+        tictactoe.update_board(0,1,"X")
+        tictactoe.update_board(0,2,"X")
 
-        result = tictactoe.position
-        expected_position = [["X", "O", "X"], ["O", "X", "O"], ["X", "O", "X"]]
+
+
+        result = tictactoe.win?
+        expected_result = true
 
         # Assert
-        expect(result).to eq(expected_position)
+        expect(result).to eq(expected_result)
     
     end 
 
