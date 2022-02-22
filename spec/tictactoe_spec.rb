@@ -98,20 +98,49 @@ describe Tictactoe do
     end
 
 
-    it "checks turn function works for updating the board" do
+    # it "checks turn function works for updating the board" do
+
+    #     # Act
+    #     tictactoe = described_class.new
+
+    #     puts "test1"
+    #     tictactoe.turn('X')
+
+    #     result = tictactoe.position
+
+    #     position = [["X", "O", "X"], ["O", "X", "O"], ["X", "O", "X"]]
+
+    #     # Assert
+    #     expect(result).to eq(position)
+    
+    # end 
+
+    # it "checks conversion of user input to index" do
+
+    #     # Act
+    #     tictactoe = described_class.new
+
+    #     result = tictactoe.user_input_to_index
+    #     expected_result = [0, 0]
+
+    #     # Assert
+    #     expect(result).to eq(expected_result)
+    
+    # end 
+
+    it "checks game function" do
 
         # Act
         tictactoe = described_class.new
 
-        puts "test1"
-        tictactoe.turn()
+        puts "Game func. test"
+        tictactoe.game
 
         result = tictactoe.position
-
-        position = [["X", "O", "X"], ["O", "X", "O"], ["X", "O", "X"]]
+        expected_position = [["X", "O", "X"], ["O", "X", "O"], ["X", "O", "X"]]
 
         # Assert
-        expect(result).to eq(position)
+        expect(result).to eq(expected_position)
     
     end 
 
