@@ -16,9 +16,30 @@ class Tictactoe
         @position[row][column] == " "
     end
 
-    def winning_combinations()
-        permutation_one = @position[0][0], @position[0][1], @position[0][2]
+    def win?()
+        winning_combinations = [
+            [@position[0][0], @position[0][1], @position[0][2]],
+            [@position[0][0], @position[1][0], @position[2][0]],
+            [@position[2][0], @position[2][1], @position[2][2]],
+            [@position[0][2], @position[1][2], @position[2][2]],
+            [@position[0][0], @position[1][1], @position[2][2]],
+            [@position[0][2], @position[1][1], @position[2][0]],
+            [@position[1][0], @position[1][1], @position[1][2]],
+            [@position[0][1], @position[1][1], @position[2][1]]
+        ]
+
+        
+        for combination in winning_combinations do
+            puts winning_combinations[0][1]
+            if winning_combinations[0][0] == winning_combinations[0][1] && winning_combinations[0][1] == winning_combinations[0,2]
+                # "you won"
+                # break
+                return true
+            end
+        end
+        return false
     end
+
 
     def user_input_to_index()
         print "Please enter your row coordinates: "
@@ -49,7 +70,8 @@ class Tictactoe
     def game()
         puts display_board()
 
-        while @turn_count < 9
+        win? == false
+        while @turn_count < 9 && (win? == false)
             if @turn_count.even? 
                 turn('X')
                 @turn_count += 1
