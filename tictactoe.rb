@@ -16,6 +16,10 @@ class Tictactoe
         @position[row][column] == " "
     end
 
+    def winning_combinations()
+        permutation_one = @position[0][0], @position[0][1], @position[0][2]
+    end
+
     def turn()
         @turn_count = 0
         while @turn_count < 9
