@@ -43,8 +43,16 @@ class Tictactoe
     def user_input_to_index()
         print "Please enter your row coordinates: "
         row = gets.chomp.to_i - 1
+
+        while not row.between?(1, 3)
+            print "Invalid input. Try again!"
+            row = gets.chomp.to_i - 1
+        end
+
         print "And now, please enter your column coordinates: "
         column = gets.chomp.to_i - 1
+
+        
         return [row, column]
     end
 

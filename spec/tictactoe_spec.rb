@@ -202,19 +202,34 @@ describe Tictactoe do
     
     # end
 
-    it "game ends with a message 'draw' after 9 turns with no winner" do
+    # it "game ends with a message 'draw' after 9 turns with no winner" do
+
+    #     # Act
+    #     tictactoe = described_class.new
+
+    #     tictactoe.game
+
+        
+    #     puts "           "
+    #     puts tictactoe.display_board
+
+    #     result = tictactoe.game
+    #     expected_result = "Draw"
+
+    #     # Assert
+    #     expect(result).to eq(expected_result)
+    
+    # end
+
+    it "checks if inputs are valid" do
 
         # Act
         tictactoe = described_class.new
 
-        tictactoe.game
+        tictactoe.user_input_to_index
 
-        
-        puts "           "
-        puts tictactoe.display_board
-
-        result = tictactoe.game
-        expected_result = "draw"
+        result = tictactoe.user_input_to_index
+        expected_result = "Invalid input"
 
         # Assert
         expect(result).to eq(expected_result)
