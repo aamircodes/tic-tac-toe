@@ -144,23 +144,81 @@ describe Tictactoe do
     
     # end 
 
-    it "checks game function" do
+    # it "checks if combination is not winning" do
+
+    #     # Act
+    #     tictactoe = described_class.new
+
+    #     tictactoe.update_board(0,0,"X")
+    #     tictactoe.update_board(0,1,"X")
+    #     tictactoe.update_board(1,2,"X")
+
+    #     puts "           "
+    #     puts tictactoe.display_board
+
+    #     result = tictactoe.win?
+    #     expected_result = false
+
+    #     # Assert
+    #     expect(result).to eq(expected_result)
+    
+    # end 
+
+    # it "checks if combination is winning" do
+
+    #     # Act
+    #     tictactoe = described_class.new
+
+    #     tictactoe.update_board(0,0,"O")
+    #     tictactoe.update_board(1,1,"O")
+    #     tictactoe.update_board(2,2,"O")
+
+    #     puts "           "
+    #     puts tictactoe.display_board
+
+    #     result = tictactoe.win?
+    #     expected_result = true
+
+    #     # Assert
+    #     expect(result).to eq(expected_result)
+    
+    # end
+
+    # it "game ends with 'you won'" do
+
+    #     # Act
+    #     tictactoe = described_class.new
+
+    #     tictactoe.game
+
+    #     puts "           "
+    #     puts tictactoe.display_board
+
+    #     result = tictactoe.game
+    #     expected_result = "You won!"
+
+    #     # Assert
+    #     expect(result).to eq(expected_result)
+    
+    # end
+
+    it "game ends with a message 'draw' after 9 turns with no winner" do
 
         # Act
         tictactoe = described_class.new
 
-        tictactoe.update_board(0,0,"X")
-        tictactoe.update_board(0,1,"X")
-        tictactoe.update_board(0,2,"X")
+        tictactoe.game
 
+        
+        puts "           "
+        puts tictactoe.display_board
 
-
-        result = tictactoe.win?
-        expected_result = true
+        result = tictactoe.game
+        expected_result = "draw"
 
         # Assert
         expect(result).to eq(expected_result)
     
-    end 
+    end
 
 end
