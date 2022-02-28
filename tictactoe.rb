@@ -30,14 +30,13 @@ class Tictactoe
 
         
         for combination in winning_combinations do
-            puts winning_combinations[0][1]
-            if winning_combinations[0][0] == winning_combinations[0][1] && winning_combinations[0][1] == winning_combinations[0,2]
-                # "you won"
-                # break
+            if (combination[0] == combination[1]) && (combination[1] == combination[2] && (combination[2] != " "))
                 return true
             end
         end
         return false
+
+
     end
 
 
@@ -79,6 +78,12 @@ class Tictactoe
                 turn('O')
                 @turn_count += 1
             end
+        end
+
+        if win? == true
+            "You won!"
+        else 
+            "draw"
         end
 
     end
