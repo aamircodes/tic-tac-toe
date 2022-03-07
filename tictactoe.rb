@@ -36,32 +36,59 @@ class Tictactoe
         end
         return false
 
-
     end
 
 
-    def user_input_to_index()
-        print "Please enter your row coordinates: "
-        row = gets.chomp.to_i - 1
+    # def user_input_to_index()
+    #     print "Please enter your row coordinates: "
+    #     row = gets.chomp.to_i - 1
 
-        while not row.between?(1, 3)
-            print "Invalid input. Try again!"
-            row = gets.chomp.to_i - 1
-        end
+    #     while not row.between?(1, 3)
+    #         print "Invalid input. Try again!"
+    #     end
 
-        print "And now, please enter your column coordinates: "
-        column = gets.chomp.to_i - 1
+    #     print "And now, please enter your column coordinates: "
+    #     column = gets.chomp.to_i - 1
 
         
-        return [row, column]
+    #     return [row, column]
+    # end
+
+    def row_input_to_index()
+        stop = false
+        while stop == false
+            print "Please enter your row coordinates: "
+            row = gets.chomp.to_i - 1
+
+            if row.between?(0, 2) && row.is_a?(Integer)
+                stop == true
+                return row
+            else
+                print "Invalid input. Try again! "
+            end
+        end
+    end
+
+    def column_input_to_index()
+        stop = false
+        while stop == false
+            print "And now, please enter your column coordinates: "
+            column = gets.chomp.to_i - 1
+
+            if column.between?(0, 2) && column.is_a?(Integer)
+                stop == true
+                return column
+            else
+                print "Invalid input. Try again! "
+            end
+        end
     end
 
     def turn(symbol)
         stop = 0
         while stop == 0 
-            user_input = user_input_to_index()
-            row = user_input[0]
-            column = user_input[1]
+            row = row_input_to_index()
+            column = column_input_to_index()
 
             if is_empty?(row,column)
                 update_board(row, column, symbol)
@@ -89,9 +116,9 @@ class Tictactoe
         end
 
         if win? == true
-            "You won!"
+            print "Congratulations! You won! "
         else 
-            "draw"
+            print "This game ended in a draw."
         end
 
     end
@@ -103,3 +130,5 @@ class Tictactoe
 
 end
 
+tictactoe_game = Tictactoe.new
+tictactoe_game.game

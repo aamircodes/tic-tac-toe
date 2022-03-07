@@ -98,141 +98,138 @@ describe Tictactoe do
     end
 
 
-    # it "checks turn function works for updating the board" do
-
-    #     # Act
-    #     tictactoe = described_class.new
-
-    #     puts "test1"
-    #     tictactoe.turn('X')
-
-    #     result = tictactoe.position
-
-    #     position = [["X", "O", "X"], ["O", "X", "O"], ["X", "O", "X"]]
-
-    #     # Assert
-    #     expect(result).to eq(position)
-    
-    # end 
-
-    # it "checks conversion of user input to index" do
-
-    #     # Act
-    #     tictactoe = described_class.new
-
-    #     result = tictactoe.user_input_to_index
-    #     expected_result = [0, 0]
-
-    #     # Assert
-    #     expect(result).to eq(expected_result)
-    
-    # end 
-
-    # it "checks game function" do
-
-    #     # Act
-    #     tictactoe = described_class.new
-
-    #     puts "Game func. test"
-    #     tictactoe.game
-
-    #     result = tictactoe.position
-    #     expected_position = [["X", "O", "X"], ["O", "X", "O"], ["X", "O", "X"]]
-
-    #     # Assert
-    #     expect(result).to eq(expected_position)
-    
-    # end 
-
-    # it "checks if combination is not winning" do
-
-    #     # Act
-    #     tictactoe = described_class.new
-
-    #     tictactoe.update_board(0,0,"X")
-    #     tictactoe.update_board(0,1,"X")
-    #     tictactoe.update_board(1,2,"X")
-
-    #     puts "           "
-    #     puts tictactoe.display_board
-
-    #     result = tictactoe.win?
-    #     expected_result = false
-
-    #     # Assert
-    #     expect(result).to eq(expected_result)
-    
-    # end 
-
-    # it "checks if combination is winning" do
-
-    #     # Act
-    #     tictactoe = described_class.new
-
-    #     tictactoe.update_board(0,0,"O")
-    #     tictactoe.update_board(1,1,"O")
-    #     tictactoe.update_board(2,2,"O")
-
-    #     puts "           "
-    #     puts tictactoe.display_board
-
-    #     result = tictactoe.win?
-    #     expected_result = true
-
-    #     # Assert
-    #     expect(result).to eq(expected_result)
-    
-    # end
-
-    # it "game ends with 'you won'" do
-
-    #     # Act
-    #     tictactoe = described_class.new
-
-    #     tictactoe.game
-
-    #     puts "           "
-    #     puts tictactoe.display_board
-
-    #     result = tictactoe.game
-    #     expected_result = "You won!"
-
-    #     # Assert
-    #     expect(result).to eq(expected_result)
-    
-    # end
-
-    # it "game ends with a message 'draw' after 9 turns with no winner" do
-
-    #     # Act
-    #     tictactoe = described_class.new
-
-    #     tictactoe.game
-
-        
-    #     puts "           "
-    #     puts tictactoe.display_board
-
-    #     result = tictactoe.game
-    #     expected_result = "Draw"
-
-    #     # Assert
-    #     expect(result).to eq(expected_result)
-    
-    # end
-
-    it "checks if inputs are valid" do
+    it "checks turn function works for updating the board" do
 
         # Act
         tictactoe = described_class.new
 
-        tictactoe.user_input_to_index
+        puts "test1"
+        tictactoe.turn('X')
+
+        result = tictactoe.position
+
+        position = [["X", "O", "X"], ["O", "X", "O"], ["X", "O", "X"]]
+
+        # Assert
+        expect(result).to eq(position)
+    
+    end 
+
+    it "checks conversion of user input to index" do
+
+        # Act
+        tictactoe = described_class.new
 
         result = tictactoe.user_input_to_index
-        expected_result = "Invalid input"
+        expected_result = [0, 0]
 
         # Assert
         expect(result).to eq(expected_result)
+    
+    end 
+
+    it "checks game function" do
+
+        # Act
+        tictactoe = described_class.new
+
+        puts "Game func. test"
+        tictactoe.game
+
+        result = tictactoe.position
+        expected_position = [["X", "O", "X"], ["O", "X", "O"], ["X", "O", "X"]]
+
+        # Assert
+        expect(result).to eq(expected_position)
+    
+    end 
+
+    it "checks if combination is not winning" do
+
+        # Act
+        tictactoe = described_class.new
+
+        tictactoe.update_board(0,0,"X")
+        tictactoe.update_board(0,1,"X")
+        tictactoe.update_board(1,2,"X")
+
+        puts "           "
+        puts tictactoe.display_board
+
+        result = tictactoe.win?
+        expected_result = false
+
+        # Assert
+        expect(result).to eq(expected_result)
+    
+    end 
+
+    it "checks if combination is winning" do
+
+        # Act
+        tictactoe = described_class.new
+
+        tictactoe.update_board(0,0,"O")
+        tictactoe.update_board(1,1,"O")
+        tictactoe.update_board(2,2,"O")
+
+        puts "           "
+        puts tictactoe.display_board
+
+        result = tictactoe.win?
+        expected_result = true
+
+        # Assert
+        expect(result).to eq(expected_result)
+    
+    end
+
+    it "game ends with 'you won'" do
+
+        # Act
+        tictactoe = described_class.new
+
+        tictactoe.game
+
+        puts "           "
+        puts tictactoe.display_board
+
+        result = tictactoe.game
+        expected_result = "You won!"
+
+        # Assert
+        expect(result).to eq(expected_result)
+    
+    end
+
+    it "game ends with a message 'draw' after 9 turns with no winner" do
+
+        # Act
+        tictactoe = described_class.new
+
+        tictactoe.game
+
+        
+        puts "           "
+        puts tictactoe.display_board
+
+        result = tictactoe.game
+        expected_result = "Draw"
+
+        # Assert
+        expect(result).to eq(expected_result)
+    
+    end
+
+    it "checks if row inputs are valid" do
+
+        # Act
+        tictactoe = described_class.new
+
+        result = tictactoe.row_input_to_index()
+
+        # Assert
+        expect(result).to eq("Invalid input. Try again! ")
     
     end
 
