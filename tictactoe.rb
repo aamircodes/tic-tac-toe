@@ -38,22 +38,6 @@ class Tictactoe
 
     end
 
-
-    # def user_input_to_index()
-    #     print "Please enter your row coordinates: "
-    #     row = gets.chomp.to_i - 1
-
-    #     while not row.between?(1, 3)
-    #         print "Invalid input. Try again!"
-    #     end
-
-    #     print "And now, please enter your column coordinates: "
-    #     column = gets.chomp.to_i - 1
-
-        
-    #     return [row, column]
-    # end
-
     def row_input_to_index()
         stop = false
         while stop == false
@@ -84,7 +68,8 @@ class Tictactoe
         end
     end
 
-    def turn(symbol)
+    def player_turn()
+        symbol = "X"
         stop = 0
         while stop == 0 
             row = row_input_to_index()
@@ -101,22 +86,38 @@ class Tictactoe
     
     end
 
+    def computer_turn()
+        symbol = "O"
+        stop = false
+        for row in @position
+            for column in row
+                if column == " "
+                    @position[@position.index(row)][row.index(column)] = symbol
+                    puts "\nComputers turn: \n"
+                    puts display_board
+                    return @position
+                    stop = true
+                end
+            end
+        end
+    end
+
     def game()
         puts display_board()
 
         win? == false
         while @turn_count < 9 && (win? == false)
             if @turn_count.even? 
-                turn('X')
+                player_turn()
                 @turn_count += 1
             else 
-                turn('O')
+                computer_turn()
                 @turn_count += 1
             end
         end
 
         if win? == true
-            print "Congratulations! You won! "
+            print "Congratulations!"
         else 
             print "This game ended in a draw."
         end
