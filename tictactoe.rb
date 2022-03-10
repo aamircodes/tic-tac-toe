@@ -38,6 +38,10 @@ class Tictactoe
 
     end
 
+    def put_output(output)
+        puts output
+    end
+
     def row_input_to_index()
         stop = false
         while stop == false
@@ -48,7 +52,7 @@ class Tictactoe
                 stop == true
                 return row
             else
-                print "Invalid input. Try again! "
+                puts "Invalid input. Try again! "
             end
         end
     end
@@ -117,9 +121,9 @@ class Tictactoe
         end
 
         if win? == true
-            print "Congratulations!"
+            put_output("Congratulations!")
         else 
-            print "This game ended in a draw."
+            put_output("This game ended in a draw.")
         end
 
     end

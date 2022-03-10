@@ -128,21 +128,36 @@ describe Tictactoe do
     
     # end 
 
-    # it "checks game function" do
+    it "checks game function" do
 
-    #     # Act
-    #     tictactoe = described_class.new
+        # Act
+        tictactoe = described_class.new
 
-    #     puts "Game func. test"
-    #     tictactoe.game
+        puts "Game func. test"
+        allow(tictactoe).to receive(:row_input_to_index).and_return(0,1,2)
+        allow(tictactoe).to receive(:column_input_to_index).and_return(0,1,2)
+        tictactoe.game
 
-    #     result = tictactoe.position
-    #     expected_position = [["X", "O", "X"], ["O", "X", "O"], ["X", "O", "X"]]
+        result = tictactoe.position
+        expected_position = [["X", "O", "O"], 
+                             [" ", "X", " "], 
+                             [" ", " ", "X"]]
 
-    #     # Assert
-    #     expect(result).to eq(expected_position)
+        # Assert
+        expect(result).to eq(expected_position)
     
-    # end 
+    end 
+
+    it "prints Invalid input. Try again!  when user input a number larger than 3" do 
+        tictactoe = described_class.new
+
+        allow(tictactoe).to receive(:gets).and_return("4", "1")
+
+        expect_msg = a_string_including('Invalid input. Try again!')
+        expect { tictactoe.column_input_to_index }.to output(expect_msg).to_stdout
+    end
+
+
 
     # it "checks if combination is not winning" do
 
@@ -245,21 +260,21 @@ describe Tictactoe do
     
     # end
 
-    it "checks computer function" do
+    # it "checks computer function" do
 
-        # Act
-        tictactoe = described_class.new
+    #     # Act
+    #     tictactoe = described_class.new
 
-        puts "computer turn function"
+    #     puts "computer turn function"
 
-        tictactoe.game
+    #     tictactoe.game
 
-        result = tictactoe.position
-        expected_position = [["O", "X", "O"], ["X", "O", "X"], ["X", "O", "X"]]
+    #     result = tictactoe.position
+    #     expected_position = [["O", "X", "O"], ["X", "O", "X"], ["X", "O", "X"]]
 
-        # Assert
-        expect(result).to eq(expected_position)
+    #     # Assert
+    #     expect(result).to eq(expected_position)
     
-    end 
+    # end 
 
 end
