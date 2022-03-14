@@ -122,25 +122,25 @@ describe Tictactoe do
     
     end 
 
-    # it "checks game function" do
+    it "checks game function" do
 
-    #     # Act
-    #     tictactoe = described_class.new
+        # Act
+        tictactoe = described_class.new
 
-    #     allow(tictactoe).to receive(:row_input_to_index).and_return(0,1,2)
-    #     allow(tictactoe).to receive(:column_input_to_index).and_return(0,1,2)
+        allow(tictactoe).to receive(:row_input_to_index).and_return(0,1,2)
+        allow(tictactoe).to receive(:column_input_to_index).and_return(0,1,2)
 
-    #     tictactoe.game
+        tictactoe.game
 
-    #     result = tictactoe.position
-    #     expected_position = [["X", "O", "O"], 
-    #                          [" ", "X", " "], 
-    #                          [" ", " ", "X"]]
+        result = tictactoe.position
+        expected_position = [["X", "O", "O"], 
+                             [" ", "X", " "], 
+                             [" ", " ", "X"]]
 
-    #     # Assert
-    #     expect(result).to eq(expected_position)
+        # Assert
+        expect(result).to eq(expected_position)
     
-    # end 
+    end 
 
     it "checks if combination is not winning" do
 
