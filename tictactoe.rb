@@ -38,21 +38,39 @@ class Tictactoe
 
     end
 
-    def put_output(output)
-        puts output
+    def who_won?(symbol)
+        winning_combinations = [
+            [@position[0][0], @position[0][1], @position[0][2]],
+            [@position[0][0], @position[1][0], @position[2][0]],
+            [@position[2][0], @position[2][1], @position[2][2]],
+            [@position[0][2], @position[1][2], @position[2][2]],
+            [@position[0][0], @position[1][1], @position[2][2]],
+            [@position[0][2], @position[1][1], @position[2][0]],
+            [@position[1][0], @position[1][1], @position[1][2]],
+            [@position[0][1], @position[1][1], @position[2][1]]
+        ]
+
+        
+        for combination in winning_combinations do
+            if (combination[0] == combination[1]) && (combination[1] == combination[2] && (combination[2] == symbol))
+                return true
+            end
+        end
+        return false
+
     end
 
     def row_input_to_index()
         stop = false
         while stop == false
-            print "Please enter your row coordinates: "
+            print "\nPlease enter your row coordinates: "
             row = gets.chomp.to_i - 1
 
             if row.between?(0, 2) && row.is_a?(Integer)
                 stop == true
                 return row
             else
-                puts "Invalid input. Try again! "
+                print "\nInvalid input. Try again! "
             end
         end
     end
@@ -60,14 +78,14 @@ class Tictactoe
     def column_input_to_index()
         stop = false
         while stop == false
-            print "And now, please enter your column coordinates: "
+            print "\nAnd now, please enter your column coordinates: "
             column = gets.chomp.to_i - 1
 
             if column.between?(0, 2) && column.is_a?(Integer)
                 stop == true
                 return column
             else
-                print "Invalid input. Try again! "
+                print "\nInvalid input. Try again! "
             end
         end
     end
@@ -84,11 +102,12 @@ class Tictactoe
                 puts display_board
                 stop += 1
             else     
-                print "This slot is already taken, try again! "
+                print "\nThis slot is already taken, try again! "
             end     
         end
     
     end
+
 
     def computer_turn()
         symbol = "O"
@@ -97,7 +116,7 @@ class Tictactoe
             for column in row
                 if column == " "
                     @position[@position.index(row)][row.index(column)] = symbol
-                    puts "\nComputers turn: \n"
+                    puts "\nComputer's turn: \n"
                     puts display_board
                     return @position
                     stop = true
@@ -121,9 +140,9 @@ class Tictactoe
         end
 
         if win? == true
-            put_output("Congratulations!")
+            print "\nCongratulations!"
         else 
-            put_output("This game ended in a draw.")
+            print "\nThis game ended in a draw."
         end
 
     end
@@ -135,5 +154,5 @@ class Tictactoe
 
 end
 
-tictactoe_game = Tictactoe.new
-tictactoe_game.game
+# tictactoe_game = Tictactoe.new
+# tictactoe_game.game

@@ -3,152 +3,186 @@ require './tictactoe'
 
 describe Tictactoe do
 
-    # it "outputs an empty board" do
-
-    #     # Act
-    #     tictactoe = described_class.new
-
-    #     position = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
-    #     expected_board = [" #{position[0][0]} | #{position[0][1]} | #{position[0][2]} ",  "-----------",  " #{position[1][0]} | #{position[1][1]} | #{position[1][2]} ",  "-----------", " #{position[2][0]} | #{position[2][1]} | #{position[2][2]} "]
-    #     result = tictactoe.display_board()
-
-    #     # Assert
-    #     expect(result).to eq(expected_board)
-
-    # end
-
-    # it "outputs board with an 'X' in the first turn at position [0][0]" do
-
-    #     # Act
-    #     tictactoe = described_class.new
-
-    #     position = [["X", " ", " "], [" ", " ", " "], [" ", " ", " "]]
-    #     expected_board = [" #{position[0][0]} | #{position[0][1]} | #{position[0][2]} ",  "-----------",  " #{position[1][0]} | #{position[1][1]} | #{position[1][2]} ",  "-----------", " #{position[2][0]} | #{position[2][1]} | #{position[2][2]} "]
-        
-    #     tictactoe.update_board(0,0,'X')
-    #     result = tictactoe.display_board()
-
-    #     # Assert
-    #     expect(result).to eq(expected_board)
-    
-    # end
-
-    # it "outputs board with an 'X' in the [0][1] position of board" do
-
-    #     # Act
-    #     tictactoe = described_class.new
-
-    #     position = [[" ", "X", " "], [" ", " ", " "], [" ", " ", " "]]
-    #     expected_board = [" #{position[0][0]} | #{position[0][1]} | #{position[0][2]} ",  "-----------",  " #{position[1][0]} | #{position[1][1]} | #{position[1][2]} ",  "-----------", " #{position[2][0]} | #{position[2][1]} | #{position[2][2]} "]
-        
-    #     tictactoe.update_board(0,1,'X')
-    #     result = tictactoe.display_board()
-
-    #     # Assert
-    #     expect(result).to eq(expected_board)
-    
-    # end
-
-    # # it "outputs board with an 'X' and 'O' in separate positions" do
-
-    # #     # Act
-    # #     tictactoe = described_class.new
-        
-    # #     position = [[" ", "X", " "], [" ", "O", " "], [" ", " ", " "]]
-    # #     expected_board = [" #{position[0][0]} | #{position[0][1]} | #{position[0][2]} ",  "-----------",  " #{position[1][0]} | #{position[1][1]} | #{position[1][2]} ",  "-----------", " #{position[2][0]} | #{position[2][1]} | #{position[2][2]} "]
-        
-    # #     tictactoe.update_board(0,1,'X')
-    # #     tictactoe.update_board(1,1,'O')
-            
-
-    # #     result = tictactoe.display_board()
-
-    # #     # Assert
-    # #     expect(result).to eq(expected_board)
-    
-    # # end
-
-    # it "checks if position is empty" do
-
-    #     # Act
-    #     tictactoe = described_class.new
-        
-    #     position = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
-    #     expected_board = [" #{position[0][0]} | #{position[0][1]} | #{position[0][2]} ",  "-----------",  " #{position[1][0]} | #{position[1][1]} | #{position[1][2]} ",  "-----------", " #{position[2][0]} | #{position[2][1]} | #{position[2][2]} "]
-
-    #     result = tictactoe.is_empty?(1,1)
-
-    #     # Assert
-    #     expect(result).to eq(true)
-    
-    # end
-
-    # it "checks if position is full" do
-
-    #     # Act
-    #     tictactoe = described_class.new
-        
-    #     tictactoe.update_board(1,1,'X')
-
-    #     result = tictactoe.is_empty?(1,1)
-
-    #     # Assert
-    #     expect(result).to eq(false)
-    
-    # end
-
-
-    # it "checks turn function works for updating the board" do
-
-    #     # Act
-    #     tictactoe = described_class.new
-
-    #     puts "test1"
-    #     tictactoe.turn('X')
-
-    #     result = tictactoe.position
-
-    #     position = [["X", "O", "X"], ["O", "X", "O"], ["X", "O", "X"]]
-
-    #     # Assert
-    #     expect(result).to eq(position)
-    
-    # end 
-
-    # it "checks conversion of user input to index" do
-
-    #     # Act
-    #     tictactoe = described_class.new
-
-    #     result = tictactoe.user_input_to_index
-    #     expected_result = [0, 0]
-
-    #     # Assert
-    #     expect(result).to eq(expected_result)
-    
-    # end 
-
-    it "checks game function" do
+    it "outputs an empty board" do
 
         # Act
         tictactoe = described_class.new
 
-        puts "Game func. test"
-        allow(tictactoe).to receive(:row_input_to_index).and_return(0,1,2)
-        allow(tictactoe).to receive(:column_input_to_index).and_return(0,1,2)
-        tictactoe.game
-
-        result = tictactoe.position
-        expected_position = [["X", "O", "O"], 
-                             [" ", "X", " "], 
-                             [" ", " ", "X"]]
+        position = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
+        expected_board = [" #{position[0][0]} | #{position[0][1]} | #{position[0][2]} ",  "-----------",  " #{position[1][0]} | #{position[1][1]} | #{position[1][2]} ",  "-----------", " #{position[2][0]} | #{position[2][1]} | #{position[2][2]} "]
+        
+        result = tictactoe.display_board()
 
         # Assert
-        expect(result).to eq(expected_position)
+        expect(result).to eq(expected_board)
+
+    end
+
+    it "outputs board with an 'X' in the first turn at position [0][0]" do
+
+        # Act
+        tictactoe = described_class.new
+
+        position = [["X", " ", " "], [" ", " ", " "], [" ", " ", " "]]
+        expected_board = [" #{position[0][0]} | #{position[0][1]} | #{position[0][2]} ",  "-----------",  " #{position[1][0]} | #{position[1][1]} | #{position[1][2]} ",  "-----------", " #{position[2][0]} | #{position[2][1]} | #{position[2][2]} "]
+        
+        tictactoe.update_board(0,0,'X')
+        result = tictactoe.display_board()
+
+        # Assert
+        expect(result).to eq(expected_board)
+    
+    end
+
+    it "outputs board with an 'X' in the [0][1] position of board" do
+
+        # Act
+        tictactoe = described_class.new
+
+        position = [[" ", "X", " "], [" ", " ", " "], [" ", " ", " "]]
+        expected_board = [" #{position[0][0]} | #{position[0][1]} | #{position[0][2]} ",  "-----------",  " #{position[1][0]} | #{position[1][1]} | #{position[1][2]} ",  "-----------", " #{position[2][0]} | #{position[2][1]} | #{position[2][2]} "]
+        
+        tictactoe.update_board(0,1,'X')
+        result = tictactoe.display_board()
+
+        # Assert
+        expect(result).to eq(expected_board)
+    
+    end
+
+    it "outputs board with an 'X' and 'O' in separate positions" do
+
+        # Act
+        tictactoe = described_class.new
+        
+        position = [[" ", "X", " "], [" ", "O", " "], [" ", " ", " "]]
+        expected_board = [" #{position[0][0]} | #{position[0][1]} | #{position[0][2]} ",  "-----------",  " #{position[1][0]} | #{position[1][1]} | #{position[1][2]} ",  "-----------", " #{position[2][0]} | #{position[2][1]} | #{position[2][2]} "]
+        
+        tictactoe.update_board(0,1,'X')
+        tictactoe.update_board(1,1,'O')
+            
+
+        result = tictactoe.display_board()
+
+        # Assert
+        expect(result).to eq(expected_board)
+    
+    end
+
+    it "checks if position is empty" do
+
+        # Act
+        tictactoe = described_class.new
+        
+        position = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
+        expected_board = [" #{position[0][0]} | #{position[0][1]} | #{position[0][2]} ",  "-----------",  " #{position[1][0]} | #{position[1][1]} | #{position[1][2]} ",  "-----------", " #{position[2][0]} | #{position[2][1]} | #{position[2][2]} "]
+
+        result = tictactoe.is_empty?(1,1)
+
+        # Assert
+        expect(result).to eq(true)
+    
+    end
+
+    it "checks if position is full" do
+
+        # Act
+        tictactoe = described_class.new
+        
+        tictactoe.update_board(1,1,'X')
+
+        result = tictactoe.is_empty?(1,1)
+
+        # Assert
+        expect(result).to eq(false)
+    
+    end
+
+
+    it "checks if turn function works" do
+
+        # Act
+        tictactoe = described_class.new
+
+        # Assert
+        expect(tictactoe).to respond_to(:player_turn)
     
     end 
 
-    it "prints Invalid input. Try again!  when user input a number larger than 3" do 
+    it "checks conversion of user row input to index" do
+
+        # Act
+        tictactoe = described_class.new
+        
+        allow(tictactoe).to receive(:row_input_to_index).and_return(0)
+        result = tictactoe.row_input_to_index()
+
+        # Assert
+        expect(result).to eq(0)
+    
+    end 
+
+    # it "checks game function" do
+
+    #     # Act
+    #     tictactoe = described_class.new
+
+    #     allow(tictactoe).to receive(:row_input_to_index).and_return(0,1,2)
+    #     allow(tictactoe).to receive(:column_input_to_index).and_return(0,1,2)
+
+    #     tictactoe.game
+
+    #     result = tictactoe.position
+    #     expected_position = [["X", "O", "O"], 
+    #                          [" ", "X", " "], 
+    #                          [" ", " ", "X"]]
+
+    #     # Assert
+    #     expect(result).to eq(expected_position)
+    
+    # end 
+
+    it "checks if combination is not winning" do
+
+        # Act
+        tictactoe = described_class.new
+
+        tictactoe.update_board(0,0,"X")
+        tictactoe.update_board(0,1,"X")
+        tictactoe.update_board(1,2,"X")
+
+        # puts "           "
+        # puts tictactoe.display_board
+
+        result = tictactoe.win?
+        expected_result = false
+
+        # Assert
+        expect(result).to eq(expected_result)
+    
+    end 
+
+    it "checks if combination is winning" do
+
+        # Act
+        tictactoe = described_class.new
+
+        tictactoe.update_board(0,0,"O")
+        tictactoe.update_board(1,1,"O")
+        tictactoe.update_board(2,2,"O")
+
+        # puts "           "
+        # puts tictactoe.display_board
+
+        result = tictactoe.win?
+        expected_result = true
+
+        # Assert
+        expect(result).to eq(expected_result)
+    
+    end
+
+    it "prints 'Invalid input. Try again!'  when user row input is a number > 3" do 
         tictactoe = described_class.new
 
         allow(tictactoe).to receive(:gets).and_return("4", "1")
@@ -157,124 +191,39 @@ describe Tictactoe do
         expect { tictactoe.column_input_to_index }.to output(expect_msg).to_stdout
     end
 
-
-
-    # it "checks if combination is not winning" do
-
-    #     # Act
-    #     tictactoe = described_class.new
-
-    #     tictactoe.update_board(0,0,"X")
-    #     tictactoe.update_board(0,1,"X")
-    #     tictactoe.update_board(1,2,"X")
-
-    #     puts "           "
-    #     puts tictactoe.display_board
-
-    #     result = tictactoe.win?
-    #     expected_result = false
-
-    #     # Assert
-    #     expect(result).to eq(expected_result)
-    
-    # end 
-
-    # it "checks if combination is winning" do
-
-    #     # Act
-    #     tictactoe = described_class.new
-
-    #     tictactoe.update_board(0,0,"O")
-    #     tictactoe.update_board(1,1,"O")
-    #     tictactoe.update_board(2,2,"O")
-
-    #     puts "           "
-    #     puts tictactoe.display_board
-
-    #     result = tictactoe.win?
-    #     expected_result = true
-
-    #     # Assert
-    #     expect(result).to eq(expected_result)
-    
-    # end
-
     # it "game ends with 'you won'" do
 
-    #     # Act
+    #     # Arrange
     #     tictactoe = described_class.new
 
-    #     tictactoe.game
-
-    #     puts "           "
-    #     puts tictactoe.display_board
-
-    #     result = tictactoe.game
-    #     expected_result = "You won!"
+    #     # Act
+    #     allow(tictactoe).to receive(:gets).and_return("1", "1", "2", "2", "3", "3")
+    #     expected_message = a_string_including("Congratulations!")
 
     #     # Assert
-    #     expect(result).to eq(expected_result)
+    #     expect {tictactoe.game}.to output(expected_message).to_stdout
     
     # end
 
-    # it "game ends with a message 'draw' after 9 turns with no winner" do
+    it "checks computer function" do
 
-    #     # Act
-    #     tictactoe = described_class.new
+        # Act
+        tictactoe = described_class.new
 
-    #     tictactoe.game
-
-        
-    #     puts "           "
-    #     puts tictactoe.display_board
-
-    #     result = tictactoe.game
-    #     expected_result = "Draw"
-
-    #     # Assert
-    #     expect(result).to eq(expected_result)
+        # Assert
+        expect(tictactoe).to respond_to(:computer_turn)
     
-    # end
+    end
 
-    # it "checks if row inputs are valid" do
 
-    #     # Act
-    #     tictactoe = described_class.new
+    it "checks who_won? function" do
 
-    #     result = tictactoe.row_input_to_index()
+        # Act
+        tictactoe = described_class.new
 
-    #     # Assert
-    #     expect(result).to eq("Invalid input. Try again! ")
+        # Assert
+        expect(tictactoe).to respond_to(:who_won?)
     
-    # end
-
-        # it "checks computer functions" do
-
-        # # Act
-        # tictactoe = described_class.new
-
-        # result = tictactoe.new
-
-        # # Assert
-        # expect(result).to eq("Invalid input. Try again! ")
-    
-    # end
-
-    # it "checks computer function" do
-
-    #     # Act
-    #     tictactoe = described_class.new
-
-    #     puts "computer turn function"
-
-    #     tictactoe.game
-
-    #     result = tictactoe.position
-    #     expected_position = [["O", "X", "O"], ["X", "O", "X"], ["X", "O", "X"]]
-
-    #     # Assert
-    #     expect(result).to eq(expected_position)
-    
-    # end 
+    end 
 
 end
