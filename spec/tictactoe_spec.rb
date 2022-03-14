@@ -151,9 +151,6 @@ describe Tictactoe do
         tictactoe.update_board(0,1,"X")
         tictactoe.update_board(1,2,"X")
 
-        # puts "           "
-        # puts tictactoe.display_board
-
         result = tictactoe.win?
         expected_result = false
 
@@ -170,9 +167,6 @@ describe Tictactoe do
         tictactoe.update_board(0,0,"O")
         tictactoe.update_board(1,1,"O")
         tictactoe.update_board(2,2,"O")
-
-        # puts "           "
-        # puts tictactoe.display_board
 
         result = tictactoe.win?
         expected_result = true
@@ -191,20 +185,6 @@ describe Tictactoe do
         expect { tictactoe.column_input_to_index }.to output(expect_msg).to_stdout
     end
 
-    # it "game ends with 'you won'" do
-
-    #     # Arrange
-    #     tictactoe = described_class.new
-
-    #     # Act
-    #     allow(tictactoe).to receive(:gets).and_return("1", "1", "2", "2", "3", "3")
-    #     expected_message = a_string_including("Congratulations!")
-
-    #     # Assert
-    #     expect {tictactoe.game}.to output(expected_message).to_stdout
-    
-    # end
-
     it "checks computer function" do
 
         # Act
@@ -214,16 +194,5 @@ describe Tictactoe do
         expect(tictactoe).to respond_to(:computer_turn)
     
     end
-
-
-    it "checks who_won? function" do
-
-        # Act
-        tictactoe = described_class.new
-
-        # Assert
-        expect(tictactoe).to respond_to(:who_won?)
-    
-    end 
 
 end

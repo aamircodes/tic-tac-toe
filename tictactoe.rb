@@ -38,28 +38,6 @@ class Tictactoe
 
     end
 
-    def who_won?(symbol)
-        winning_combinations = [
-            [@position[0][0], @position[0][1], @position[0][2]],
-            [@position[0][0], @position[1][0], @position[2][0]],
-            [@position[2][0], @position[2][1], @position[2][2]],
-            [@position[0][2], @position[1][2], @position[2][2]],
-            [@position[0][0], @position[1][1], @position[2][2]],
-            [@position[0][2], @position[1][1], @position[2][0]],
-            [@position[1][0], @position[1][1], @position[1][2]],
-            [@position[0][1], @position[1][1], @position[2][1]]
-        ]
-
-        
-        for combination in winning_combinations do
-            if (combination[0] == combination[1]) && (combination[1] == combination[2] && (combination[2] == symbol))
-                return true
-            end
-        end
-        return false
-
-    end
-
     def row_input_to_index()
         stop = false
         while stop == false
@@ -154,5 +132,5 @@ class Tictactoe
 
 end
 
-# tictactoe_game = Tictactoe.new
-# tictactoe_game.game
+tictactoe_game = Tictactoe.new
+tictactoe_game.game
